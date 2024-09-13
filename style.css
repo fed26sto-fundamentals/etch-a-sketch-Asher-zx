@@ -15,8 +15,6 @@ body {
 }
 
 .grid-item {
-  background-color: brown;
-  color: white;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -24,3 +22,11 @@ body {
   border-radius: 5px;
 }
 
+.grid-item {
+  background-color: #6ccbea;
+  transition: background-color 0.3s;
+}
+
+.grid-item:hover {
+  background: linear-gradient(45deg, #ff6b6b, #f7e84c); /* Gradient color on hover */
+}
