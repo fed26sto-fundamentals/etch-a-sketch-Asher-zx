@@ -1,17 +1,26 @@
 // select the grid
 const gridContainer = document.getElementById('gridcontainer');
+const generateGridButton = document.getElementById('generateGridButton');
+
 
 // set the background color
 const multipleColor = "black";
 
 // create a grid of squares
-function createGrid(rows, cols) {
-  for (let i =0; i < rows * cols; i++) {
+function createGrid(size) {
+  //clear the exsting grid
+  gridContainer.innerHTML = '';
+
+  //set the grid template based on the size
+  gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+  for (let i =0; i < size * size; i++) {
     // create a new div
     const gridItem = document.createElement('div');
 
     gridItem.className = 'grid-item';
-    // add class
+    // add class to div
 
     // add eventlistener
     gridItem.addEventListener('mouseover', () => {
@@ -25,12 +34,20 @@ function createGrid(rows, cols) {
 
     //append the new div to the grid container
     gridContainer.appendChild(gridItem);
-
- 
   };
 }
 
+function promptForGridSize() {
+  const input = prompt("Enter the number of square per side (max 100):")
+  const size = parseInt(input);
+
+  if (size > 0 && size <= 100) {  // Corrected the if condition
+    createGrid(size);
+  } else {
+    alert ("Please enter a valid number between 1~100.");
+  }
+}
 
 
-// create 16 x 16 grid items
-createGrid(16, 16);
+// eventlistener to button
+generateGridButton.addEventListener('click', promptForGridSize);

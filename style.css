@@ -7,6 +7,17 @@ body {
   margin: 0;
 }
 
+h1 {
+  margin: 20px;
+}
+
+button {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
